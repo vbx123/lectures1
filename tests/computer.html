@@ -1,1 +1,33 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اختبارات - مقدمة الحاسب</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <h1>📝 اختبارات - مقدمة الحاسب</h1>
+    <a href="../tests.html" class="back">⬅ الاختبارات</a>
+  </header>
+
+  <main>
+    <div class="quiz-container">
+      <h2>اختبار بسيط: الحاسب</h2>
+      <p>سؤال: أي جزء هو معالج الكمبيوتر؟</p>
+      <div class="quiz-options">
+        <button onclick="show('خطأ')">القرص الصلب</button>
+        <button onclick="show('صح')">المعالج (CPU)</button>
+        <button onclick="show('خطأ')">الطابعة</button>
+      </div>
+      <div id="res" style="margin-top:10px;font-weight:bold;"></div>
+    </div>
+  </main>
+
+  <script>
+    function show(ans){ document.getElementById('res').textContent = ans; }
+  </script>
+</body>
+</html>
