@@ -1,32 +1,131 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>اختبارات - الرياضة</title>
-  <link rel="stylesheet" href="../assets/style.css">
-</head>
-<body>
-  <header>
-    <h1>📝 اختبارات - الرياضة</h1>
-    <a href="../tests.html" class="back">⬅ الاختبارات</a>
-  </header>
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun&family=Amiri&display=swap');
 
-  <main>
-    <div class="quiz-container">
-      <h2>اختبار رياضي: سؤال بسيط</h2>
-      <p>ما فائدة الإحماء قبل التمرين؟</p>
-      <div class="quiz-options">
-        <button onclick="out('زيادة اللياقة')">زيادة اللياقة</button>
-        <button onclick="out('تقليل الإصابات')">تقليل الإصابات</button>
-        <button onclick="out('خطأ')">لا فائدة</button>
-      </div>
-      <div id="msg" style="margin-top:10px;font-weight:bold;"></div>
-    </div>
-  </main>
+body {
+  font-family: 'Amiri', serif;
+  margin: 0;
+  background-color: #f8f8f8;
+  color: #222;
+}
 
-  <script>
-    function out(t){ document.getElementById('msg').textContent = t; }
-  </script>
-</body>
-</html>
+header {
+  background-color: #2a9d8f;
+  color: white;
+  text-align: center;
+  padding: 12px 20px; /* تم تقليل الpadding */
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+header h1 {
+  font-family: 'Reem Kufi Fun', sans-serif;
+  margin: 0;
+  font-size: 20px; /* تقليل حجم العنوان */
+  line-height: 1.2;
+}
+
+header .back {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  background: rgba(255,255,255,0.08);
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.home-container, .subject-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  padding: 30px;
+  text-align: center;
+}
+
+.home-card, .subject-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  text-decoration: none;
+  color: #222;
+  transition: 0.25s;
+}
+
+.home-card:hover, .subject-card:hover {
+  transform: translateY(-6px);
+  background-color: #e9f5f3;
+}
+
+footer {
+  text-align: center;
+  padding: 12px;
+  background: #264653;
+  color: white;
+  margin-top: 30px;
+}
+
+.video-page {
+  padding: 24px;
+  text-align: center;
+}
+
+.video-player video {
+  width: 92%;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.video-info {
+  margin-top: 16px;
+}
+
+.video-buttons {
+  margin-top: 14px;
+}
+
+.video-buttons button {
+  margin: 8px 6px;
+  padding: 8px 16px;
+  background-color: #2a9d8f;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.video-buttons button:hover {
+  background-color: #21867a;
+}
+
+/* نمط للاختبارات البسيطة */
+.quiz-container {
+  max-width: 900px;
+  margin: 20px auto;
+  background: white;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  text-align: right;
+}
+
+.quiz-question {
+  margin-bottom: 12px;
+}
+
+.quiz-options button {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fafafa;
+  cursor: pointer;
+  text-align: right;
+}
