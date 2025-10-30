@@ -1,1 +1,33 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اختبارات - إدارة أعمال</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <h1>📝 اختبارات - إدارة أعمال</h1>
+    <a href="../tests.html" class="back">⬅ الاختبارات</a>
+  </header>
+
+  <main>
+    <div class="quiz-container">
+      <h2>اختبار إدارة: سؤال</h2>
+      <p>أي خيار من وظائف الإدارة الأربعة؟</p>
+      <div class="quiz-options">
+        <button onclick="r('صح')">التخطيط</button>
+        <button onclick="r('خطأ')">الطبخ</button>
+        <button onclick="r('خطأ')">السياحة</button>
+      </div>
+      <div id="resp" style="margin-top:10px;font-weight:bold;"></div>
+    </div>
+  </main>
+
+  <script>
+    function r(t){ document.getElementById('resp').textContent = t; }
+  </script>
+</body>
+</html>
 
