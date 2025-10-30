@@ -1,1 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اختبارات - مدخل القانون</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <h1>📝 اختبارات - مدخل القانون</h1>
+    <a href="../tests.html" class="back">⬅ الاختبارات</a>
+  </header>
 
+  <main>
+    <div class="quiz-container" id="quiz">
+      <h2>اختبار تجريبي: مدخل القانون</h2>
+      <div id="questionBox"></div>
+      <div id="optionsBox" class="quiz-options"></div>
+      <div style="margin-top:12px;">
+        <button id="nextBtn" style="padding:10px 16px;">السؤال التالي</button>
+      </div>
+      <div id="result" style="margin-top:12px;font-weight:bold;"></div>
+    </div>
+  </main>
+
+  <script>
+    const quizData = [
+      {q: "ما هي معادلة القانون الأساسية؟", options: ["حُكم واحد","قواعد للسلوك","حقوق وواجبات"], a: 1},
+      {q: "ما هو مصدر القانون؟", options: ["العدالة","التشريع","الشعب"], a: 1}
+    ];
+    let idx = 0, score = 0;
+    function loadQuestion(i){
+      const q = quizData[i];
+      document.getElementById('questionBox').innerHTML = '<p class="quiz-question">'+(i+1)+'. '+q.q+'</p>';
+      const opts = q.options.map((op, j) => `<button onclick="select(${j})">${op}</button>`).join('');
+      document.getElementById('optionsBox').innerHTML = opts;
+    }
+    function select(choice){
+      const correct = quizData[idx].a;
+      if(choice === correct) score++;
+      idx++;
+      if(idx < quizData.length) loadQuestion(idx);
+      else finish();
+    }
+    function finish(){
+      document.getElementById('quiz').innerHTML = `<h3>انتهى الاختبار</h3><p>النتيجة: ${score} / ${quizData.length}</p>`;
+    }
+    document.getElementById('nextBtn').addEventListener('click', ()=> {
+      // مجرد تفعيل Next لو حبيت تستخدمه لاحقاً
+      if(idx < quizData.length) loadQuestion(idx);
+    });
+    loadQuestion(idx);
+  </script>
+</body>
+</html>
