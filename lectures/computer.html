@@ -1,1 +1,48 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مقدمة الحاسب | المحاضرات</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <h1>💻 مقدمة الحاسب</h1>
+    <a href="../lectures.html" class="back">⬅ المحاضرات</a>
+  </header>
+
+  <main class="video-page">
+    <div class="video-player">
+      <video controls>
+        <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+        المتصفح لا يدعم تشغيل الفيديو.
+      </video>
+    </div>
+
+    <div class="video-info">
+      <h2>محاضرة 1: أساسيات الحاسب</h2>
+      <p>مقدمة عن مكونات الحاسب والبرمجيات وأنظمة التشغيل.</p>
+    </div>
+
+    <div class="video-buttons">
+      <button onclick="changeVideo('https://www.w3schools.com/html/movie.mp4','محاضرة 1: أساسيات الحاسب','مقدمة عن مكونات الحاسب')">محاضرة 1</button>
+      <button onclick="changeVideo('https://www.w3schools.com/html/mov_bbb.mp4','محاضرة 2: العتاد والبرمجيات','شرح للعتاد وأنواع البرمجيات')">محاضرة 2</button>
+      <button onclick="changeVideo('https://www.w3schools.com/html/movie.mp4','محاضرة 3: نظم التشغيل','مفاهيم أساسية عن نظم التشغيل')">محاضرة 3</button>
+    </div>
+  </main>
+
+  <script>
+    function changeVideo(src, title, desc) {
+      const video = document.querySelector("video");
+      const h2 = document.querySelector(".video-info h2");
+      const p = document.querySelector(".video-info p");
+      video.src = src;
+      h2.textContent = title;
+      p.textContent = desc;
+      video.play();
+    }
+  </script>
+</body>
+</html>
