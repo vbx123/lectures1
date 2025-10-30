@@ -1,1 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اختبارات - دراسات تجارية (لغة)</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <h1>📝 اختبارات - اللغة (مستويات)</h1>
+    <a href="../tests.html" class="back">⬅ الاختبارات</a>
+  </header>
+
+  <main class="subject-container" style="padding:20px;">
+    <a href="#level1" class="subject-card" onclick="openLevel(1)">المستوى 1</a>
+    <a href="#level2" class="subject-card" onclick="openLevel(2)">المستوى 2</a>
+    <a href="#level3" class="subject-card" onclick="openLevel(3)">المستوى 3</a>
+    <a href="#level4" class="subject-card" onclick="openLevel(4)">المستوى 4</a>
+    <a href="#level5" class="subject-card" onclick="openLevel(5)">المستوى 5</a>
+  </main>
+
+  <div id="levelBox" style="max-width:900px;margin:18px auto;"></div>
+
+  <script>
+    function openLevel(n){
+      const box = document.getElementById('levelBox');
+      if(n === 1){
+        box.innerHTML = `<div class="quiz-container"><h3>مستوى 1 - اختبار بسيط</h3>
+        <p>ترجم الكلمة: "Book"</p>
+        <div class="quiz-options">
+          <button onclick="answer('صح')">كتاب</button>
+          <button onclick="answer('خطأ')">قلم</button>
+        </div><div id="lvlres" style="margin-top:10px;font-weight:bold;"></div></div>`;
+      } else {
+        box.innerHTML = `<div class="quiz-container"><h3>مستوى ${n}</h3><p>سيتم إضافة أسئلة لهذا المستوى لاحقًا.</p></div>`;
+      }
+    }
+    function answer(t){ document.getElementById('lvlres').textContent = t; }
+  </script>
+</body>
+</html>
 
