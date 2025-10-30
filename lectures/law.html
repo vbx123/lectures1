@@ -1,1 +1,53 @@
 
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مدخل القانون | المحاضرات</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <h1>🎓 مدخل القانون</h1>
+    <a href="../lectures.html" class="back">⬅ المحاضرات</a>
+  </header>
+
+  <main class="video-page">
+    <div class="video-player">
+      <video controls>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        المتصفح لا يدعم تشغيل الفيديو.
+      </video>
+    </div>
+
+```
+<div class="video-info">
+  <h2>محاضرة 1: مقدمة في القانون</h2>
+  <p>شرح شامل عن مفهوم القانون وأهميته في تنظيم العلاقات داخل المجتمع.</p>
+</div>
+
+<div class="video-buttons">
+  <button onclick="changeVideo('https://www.w3schools.com/html/mov_bbb.mp4', 'محاضرة 1: مقدمة في القانون', 'شرح شامل عن مفهوم القانون...')">محاضرة 1</button>
+  <button onclick="changeVideo('https://www.w3schools.com/html/movie.mp4', 'محاضرة 2: أنواع القوانين', 'شرح لأنواع القوانين العامة والخاصة.')">محاضرة 2</button>
+  <button onclick="changeVideo('https://www.w3schools.com/html/mov_bbb.mp4', 'محاضرة 3: مصادر القانون', 'التعرف على مصادر القانون الرئيسية.')">محاضرة 3</button>
+</div>
+```
+
+  </main>
+
+  <script>
+    function changeVideo(src, title, desc) {
+      const video = document.querySelector("video");
+      const h2 = document.querySelector(".video-info h2");
+      const p = document.querySelector(".video-info p");
+      video.src = src;
+      h2.textContent = title;
+      p.textContent = desc;
+      video.play();
+    }
+  </script>
+
+</body>
+</html>
