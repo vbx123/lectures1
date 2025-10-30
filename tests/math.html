@@ -1,1 +1,33 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اختبارات - الرياضة</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <h1>📝 اختبارات - الرياضة</h1>
+    <a href="../tests.html" class="back">⬅ الاختبارات</a>
+  </header>
+
+  <main>
+    <div class="quiz-container">
+      <h2>اختبار رياضي: سؤال بسيط</h2>
+      <p>ما فائدة الإحماء قبل التمرين؟</p>
+      <div class="quiz-options">
+        <button onclick="out('زيادة اللياقة')">زيادة اللياقة</button>
+        <button onclick="out('تقليل الإصابات')">تقليل الإصابات</button>
+        <button onclick="out('خطأ')">لا فائدة</button>
+      </div>
+      <div id="msg" style="margin-top:10px;font-weight:bold;"></div>
+    </div>
+  </main>
+
+  <script>
+    function out(t){ document.getElementById('msg').textContent = t; }
+  </script>
+</body>
+</html>
 
