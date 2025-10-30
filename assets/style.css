@@ -1,93 +1,32 @@
-@import url('[https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun&family=Amiri&display=swap](https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun&family=Amiri&display=swap)');
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اختبارات - الرياضة</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <h1>📝 اختبارات - الرياضة</h1>
+    <a href="../tests.html" class="back">⬅ الاختبارات</a>
+  </header>
 
-body {
-font-family: 'Amiri', serif;
-margin: 0;
-background-color: #f8f8f8;
-color: #222;
-}
+  <main>
+    <div class="quiz-container">
+      <h2>اختبار رياضي: سؤال بسيط</h2>
+      <p>ما فائدة الإحماء قبل التمرين؟</p>
+      <div class="quiz-options">
+        <button onclick="out('زيادة اللياقة')">زيادة اللياقة</button>
+        <button onclick="out('تقليل الإصابات')">تقليل الإصابات</button>
+        <button onclick="out('خطأ')">لا فائدة</button>
+      </div>
+      <div id="msg" style="margin-top:10px;font-weight:bold;"></div>
+    </div>
+  </main>
 
-header {
-background-color: #2a9d8f;
-color: white;
-text-align: center;
-padding: 20px;
-position: relative;
-}
-
-header h1 {
-font-family: 'Reem Kufi Fun', sans-serif;
-margin: 0;
-}
-
-header .back {
-position: absolute;
-left: 20px;
-top: 20px;
-color: white;
-text-decoration: none;
-font-weight: bold;
-}
-
-.home-container, .subject-container {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-gap: 20px;
-padding: 40px;
-text-align: center;
-}
-
-.home-card, .subject-card {
-background-color: white;
-border-radius: 15px;
-padding: 30px;
-box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-text-decoration: none;
-color: #222;
-transition: 0.3s;
-}
-
-.home-card:hover, .subject-card:hover {
-transform: translateY(-5px);
-background-color: #e9f5f3;
-}
-
-footer {
-text-align: center;
-padding: 15px;
-background: #264653;
-color: white;
-}
-
-.video-page {
-padding: 30px;
-text-align: center;
-}
-
-.video-player video {
-width: 90%;
-max-width: 800px;
-border-radius: 10px;
-box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.video-info {
-margin-top: 20px;
-}
-
-.video-buttons button {
-margin: 10px;
-padding: 10px 20px;
-background-color: #2a9d8f;
-border: none;
-border-radius: 8px;
-color: white;
-cursor: pointer;
-font-size: 16px;
-transition: 0.3s;
-}
-
-.video-buttons button:hover {
-background-color: #21867a;
-}
-
+  <script>
+    function out(t){ document.getElementById('msg').textContent = t; }
+  </script>
+</body>
+</html>
