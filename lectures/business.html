@@ -1,1 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إدارة أعمال | المحاضرات</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <h1>🏢 إدارة أعمال</h1>
+    <a href="../lectures.html" class="back">⬅ المحاضرات</a>
+  </header>
+
+  <main class="video-page">
+    <div class="video-player">
+      <video controls>
+        <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+        المتصفح لا يدعم تشغيل الفيديو.
+      </video>
+    </div>
+
+    <div class="video-info">
+      <h2>محاضرة 1: أساسيات الإدارة</h2>
+      <p>مبادئ التخطيط والتنظيم والقيادة والرقابة.</p>
+    </div>
+
+    <div class="video-buttons">
+      <button onclick="changeVideo('https://www.w3schools.com/html/movie.mp4','محاضرة 1: أساسيات الإدارة','مقدمة عن وظائف الإدارة')">محاضرة 1</button>
+      <button onclick="changeVideo('https://www.w3schools.com/html/mov_bbb.mp4','محاضرة 2: التخطيط الاستراتيجي','أساسيات وضع الخطط')">محاضرة 2</button>
+      <button onclick="changeVideo('https://www.w3schools.com/html/movie.mp4','محاضرة 3: التنظيم','هيكلة المنشأة')">محاضرة 3</button>
+    </div>
+  </main>
+
+  <script>
+    function changeVideo(src, title, desc) {
+      const video = document.querySelector("video");
+      const h2 = document.querySelector(".video-info h2");
+      const p = document.querySelector(".video-info p");
+      video.src = src;
+      h2.textContent = title;
+      p.textContent = desc;
+      video.play();
+    }
+  </script>
+</body>
+</html>
 
