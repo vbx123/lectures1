@@ -1,5 +1,5 @@
-
 <!DOCTYPE html>
+
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
@@ -15,34 +15,39 @@
 
   <main class="video-page">
     <div class="video-player">
-      <video controls>
-        <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
-        المتصفح لا يدعم تشغيل الفيديو.
-      </video>
+      <iframe id="lectureVideo" width="100%" height="400" src="https://www.youtube.com/embed/vu97K5knEso" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <div class="video-info">
-      <h2>محاضرة 1: أساسيات الحاسب</h2>
-      <p>مقدمة عن مكونات الحاسب والبرمجيات وأنظمة التشغيل.</p>
-    </div>
+```
+<div class="video-info">
+  <h2>محاضرة 1: مقدمة في الحاسب</h2>
+  <p>مقدمة عن مفهوم الحاسب، استخداماته، وأنواعه الأساسية.</p>
+</div>
 
-    <div class="video-buttons">
-      <button onclick="changeVideo('https://www.w3schools.com/html/movie.mp4','محاضرة 1: أساسيات الحاسب','مقدمة عن مكونات الحاسب')">محاضرة 1</button>
-      <button onclick="changeVideo('https://www.w3schools.com/html/mov_bbb.mp4','محاضرة 2: العتاد والبرمجيات','شرح للعتاد وأنواع البرمجيات')">محاضرة 2</button>
-      <button onclick="changeVideo('https://www.w3schools.com/html/movie.mp4','محاضرة 3: نظم التشغيل','مفاهيم أساسية عن نظم التشغيل')">محاضرة 3</button>
-    </div>
+<div class="video-buttons">
+  <button onclick="changeVideo('vu97K5knEso','محاضرة 1: مقدمة في الحاسب','مقدمة عن مفهوم الحاسب، استخداماته، وأنواعه الأساسية.')">محاضرة 1</button>
+  <button onclick="changeVideo('HRfGX6IcfGY','محاضرة 2: مكونات الحاسب','شرح تفصيلي لمكونات الحاسب المادية والبرمجية.')">محاضرة 2</button>
+  <button onclick="changeVideo('cohmt6CCzek','محاضرة 3: وحدات الإدخال والإخراج','التعرف على أهم وحدات الإدخال والإخراج ودورها في الحاسب.')">محاضرة 3</button>
+  <button onclick="changeVideo('frcTZ_N9_g4','محاضرة 4: أنواع البرمجيات','شرح لأنواع البرمجيات وأنظمة التشغيل.')">محاضرة 4</button>
+  <button onclick="changeVideo('h3-_0yTpA5w','محاضرة 5: نظم التشغيل','مقدمة في أنظمة التشغيل ومهامها في إدارة الحاسب.')">محاضرة 5</button>
+  <button onclick="changeVideo('KMwph_8PXy4','محاضرة 6: الشبكات والاتصال','شرح مبسط عن الشبكات وأنواع الاتصال بين الحواسيب.')">محاضرة 6</button>
+  <button onclick="changeVideo('z2yPGr2WoC4','محاضرة 7: تطبيقات الحاسب','أهم تطبيقات الحاسب في الحياة اليومية والمجالات العملية.')">محاضرة 7</button>
+  <button onclick="changeVideo('5XGl6SHzrO4','المراجعة النهائية','ملخص شامل لمقرر مقدمة الحاسب وأهم المفاهيم الأساسية.')">📘 المراجعة النهائية</button>
+</div>
+```
+
   </main>
 
   <script>
-    function changeVideo(src, title, desc) {
-      const video = document.querySelector("video");
+    function changeVideo(videoId, title, desc) {
+      const iframe = document.getElementById("lectureVideo");
       const h2 = document.querySelector(".video-info h2");
       const p = document.querySelector(".video-info p");
-      video.src = src;
+      iframe.src = `https://www.youtube.com/embed/${videoId}`;
       h2.textContent = title;
       p.textContent = desc;
-      video.play();
     }
   </script>
+
 </body>
 </html>
