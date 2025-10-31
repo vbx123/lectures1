@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
@@ -14,35 +15,38 @@
 
   <main class="video-page">
     <div class="video-player">
-      <video controls>
-        <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
-        المتصفح لا يدعم تشغيل الفيديو.
-      </video>
+      <iframe id="lectureVideo" width="100%" height="400" src="https://www.youtube.com/embed/V_iND2GNRtE" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <div class="video-info">
-      <h2>محاضرة 1: أساسيات الإدارة</h2>
-      <p>مبادئ التخطيط والتنظيم والقيادة والرقابة.</p>
-    </div>
+```
+<div class="video-info">
+  <h2>محاضرة 1: مدخل إلى إدارة الأعمال</h2>
+  <p>مقدمة عامة عن مفهوم الإدارة وأهدافها وأهميتها في المؤسسات.</p>
+</div>
 
-    <div class="video-buttons">
-      <button onclick="changeVideo('https://www.w3schools.com/html/movie.mp4','محاضرة 1: أساسيات الإدارة','مقدمة عن وظائف الإدارة')">محاضرة 1</button>
-      <button onclick="changeVideo('https://www.w3schools.com/html/mov_bbb.mp4','محاضرة 2: التخطيط الاستراتيجي','أساسيات وضع الخطط')">محاضرة 2</button>
-      <button onclick="changeVideo('https://www.w3schools.com/html/movie.mp4','محاضرة 3: التنظيم','هيكلة المنشأة')">محاضرة 3</button>
-    </div>
+<div class="video-buttons">
+  <button onclick="changeVideo('V_iND2GNRtE','محاضرة 1: مدخل إلى إدارة الأعمال','مقدمة عامة عن مفهوم الإدارة وأهدافها وأهميتها في المؤسسات.')">محاضرة 1</button>
+  <button onclick="changeVideo('vgOP_MX4mww','محاضرة 2: وظائف الإدارة','شرح لوظائف الإدارة الرئيسية: التخطيط، التنظيم، القيادة، والرقابة.')">محاضرة 2</button>
+  <button onclick="changeVideo('JV5L5t2tjUU','محاضرة 3: التخطيط الإداري','أهمية التخطيط في نجاح الأعمال وكيفية وضع الخطط الفعالة.')">محاضرة 3</button>
+  <button onclick="changeVideo('tWm-Ks8av64','محاضرة 4: التنظيم الإداري','شرح هيكل المؤسسات وكيفية توزيع السلطات والمسؤوليات.')">محاضرة 4</button>
+  <button onclick="changeVideo('h7g8irojyN4','محاضرة 5: القيادة والإشراف','أساليب القيادة الفعالة ودور المدير في تحفيز الموظفين.')">محاضرة 5</button>
+  <button onclick="changeVideo('dXF5ZgiI5fw','محاضرة 6: الرقابة الإدارية','مفهوم الرقابة وأدواتها لضمان تحقيق الأهداف الإدارية.')">محاضرة 6</button>
+  <button onclick="changeVideo('kNqWGB0vKfo','محاضرة 7: المراجعة النهائية','مراجعة شاملة لأهم المفاهيم والمصطلحات في إدارة الأعمال.')">📘 المراجعة النهائية</button>
+</div>
+```
+
   </main>
 
   <script>
-    function changeVideo(src, title, desc) {
-      const video = document.querySelector("video");
+    function changeVideo(videoId, title, desc) {
+      const iframe = document.getElementById("lectureVideo");
       const h2 = document.querySelector(".video-info h2");
       const p = document.querySelector(".video-info p");
-      video.src = src;
+      iframe.src = `https://www.youtube.com/embed/${videoId}`;
       h2.textContent = title;
       p.textContent = desc;
-      video.play();
     }
   </script>
+
 </body>
 </html>
-
