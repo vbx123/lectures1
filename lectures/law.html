@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html lang="ar" dir="rtl">
@@ -10,16 +9,13 @@
 </head>
 <body>
   <header>
-    <h1>🎓 مدخل القانون</h1>
+    <h1>📚 مدخل القانون</h1>
     <a href="../lectures.html" class="back">⬅ المحاضرات</a>
   </header>
 
   <main class="video-page">
     <div class="video-player">
-      <video controls>
-        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-        المتصفح لا يدعم تشغيل الفيديو.
-      </video>
+      <iframe id="lectureVideo" width="100%" height="400" src="https://www.youtube.com/embed/JkqZ1hBWRM4" frameborder="0" allowfullscreen></iframe>
     </div>
 
 ```
@@ -29,23 +25,26 @@
 </div>
 
 <div class="video-buttons">
-  <button onclick="changeVideo('https://www.w3schools.com/html/mov_bbb.mp4', 'محاضرة 1: مقدمة في القانون', 'شرح شامل عن مفهوم القانون...')">محاضرة 1</button>
-  <button onclick="changeVideo('https://www.w3schools.com/html/movie.mp4', 'محاضرة 2: أنواع القوانين', 'شرح لأنواع القوانين العامة والخاصة.')">محاضرة 2</button>
-  <button onclick="changeVideo('https://www.w3schools.com/html/mov_bbb.mp4', 'محاضرة 3: مصادر القانون', 'التعرف على مصادر القانون الرئيسية.')">محاضرة 3</button>
+  <button onclick="changeVideo('JkqZ1hBWRM4', 'محاضرة 1: مقدمة في القانون', 'شرح شامل عن مفهوم القانون وأهميته في تنظيم العلاقات داخل المجتمع.')">محاضرة 1</button>
+  <button onclick="changeVideo('7S9AR1VB52s', 'محاضرة 2: أنواع القوانين', 'شرح لأنواع القوانين العامة والخاصة.')">محاضرة 2</button>
+  <button onclick="changeVideo('N2stEit2SCE', 'محاضرة 3: مصادر القانون', 'التعرف على مصادر القانون الرئيسية.')">محاضرة 3</button>
+  <button onclick="changeVideo('5tat0lWQJEQ', 'محاضرة 4: تطبيق القانون', 'كيفية تطبيق القواعد القانونية في الحياة العملية.')">محاضرة 4</button>
+  <button onclick="changeVideo('fSyO7nHPacY', 'محاضرة 5: تفسير القانون', 'طرق تفسير النصوص القانونية وأهم مبادئها.')">محاضرة 5</button>
+  <button onclick="changeVideo('L4lm2oZOtpY', 'محاضرة 6: العلاقة بين القانون والأخلاق', 'تحليل العلاقة بين القانون والقيم الأخلاقية في المجتمع.')">محاضرة 6</button>
+  <button onclick="changeVideo('eE4YnXDoFgw', 'محاضرة 7: المراجعة النهائية', 'مراجعة شاملة لأهم النقاط والمفاهيم التي تم تناولها خلال المقرر.')">محاضرة مراجعة نهائية</button>
 </div>
 ```
 
   </main>
 
   <script>
-    function changeVideo(src, title, desc) {
-      const video = document.querySelector("video");
+    function changeVideo(videoId, title, desc) {
+      const iframe = document.getElementById("lectureVideo");
       const h2 = document.querySelector(".video-info h2");
       const p = document.querySelector(".video-info p");
-      video.src = src;
+      iframe.src = `https://www.youtube.com/embed/${videoId}`;
       h2.textContent = title;
       p.textContent = desc;
-      video.play();
     }
   </script>
 
