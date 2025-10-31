@@ -3,31 +3,106 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>اختبارات - مبادئ المحاسبة المالية</title>
+  <title>اختبارات - مادة المحاسبة</title>
   <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    .quiz-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px #ccc;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .quiz-options button {
+      display: inline-block;
+      margin: 5px;
+      padding: 10px 20px;
+      background: #008cff;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .quiz-options button:hover { background: #006ad1; }
+  </style>
 </head>
 <body>
   <header>
-    <h1>📝 اختبارات - المحاسبة</h1>
+    <h1>🧮 اختبارات - مبادئ المحاسبة</h1>
     <a href="../tests.html" class="back">⬅ الاختبارات</a>
   </header>
 
-  <main>
-    <div class="quiz-container">
-      <h2>اختبار محاسبة: سؤال سريع</h2>
-      <p>ما هي الأصول؟</p>
-      <div class="quiz-options">
-        <button onclick="ans('غير صحيح')">الديون فقط</button>
-        <button onclick="ans('صح')">الموجودات ذات قيمة للشركة</button>
-        <button onclick="ans('غير صحيح')">الإيرادات فقط</button>
-      </div>
-      <div id="out" style="margin-top:10px;font-weight:bold;"></div>
-    </div>
+  <main class="subject-container" style="padding:20px;">
+    <a href="#level1" class="subject-card" onclick="openLevel(1)">المستوى 1</a>
+    <a href="#level2" class="subject-card" onclick="openLevel(2)">المستوى 2</a>
+    <a href="#level3" class="subject-card" onclick="openLevel(3)">المستوى 3</a>
+    <a href="#level4" class="subject-card" onclick="openLevel(4)">المستوى 4</a>
+    <a href="#level5" class="subject-card" onclick="openLevel(5)">المستوى 5</a>
   </main>
 
+  <div id="levelBox" style="max-width:900px;margin:18px auto;"></div>
+
   <script>
-    function ans(t){ document.getElementById('out').textContent = t; }
+    function openLevel(level) {
+      const box = document.getElementById('levelBox');
+      box.innerHTML = '';
+
+      // مثال لمستوى 1 فيه اختبارات بسيطة
+      if (level === 1) {
+        box.innerHTML += quizTemplate("اختبار 1", "المعادلة المحاسبية تتكون من:", [
+          { text: "الأصول = الخصوم + حقوق الملكية", correct: true },
+          { text: "الأصول = المصروفات + الإيرادات" },
+          { text: "الأصول = رأس المال + الإيرادات" }
+        ]);
+        box.innerHTML += quizTemplate("اختبار 2", "هل النقدية أصل متداول؟", [
+          { text: "صح", correct: true },
+          { text: "خطأ" }
+        ]);
+      }
+
+      // مثال لمستوى 2 متوسط
+      else if (level === 2) {
+        box.innerHTML += quizTemplate("اختبار 1", "أي مما يلي ليس من الأصول الثابتة:", [
+          { text: "الأراضي" },
+          { text: "المباني" },
+          { text: "المخزون", correct: true }
+        ]);
+        box.innerHTML += quizTemplate("اختبار 2", "قيد اليومية يُستخدم لتسجيل العمليات المالية.", [
+          { text: "صح", correct: true },
+          { text: "خطأ" }
+        ]);
+      }
+
+      // باقي المستويات لاحقًا
+      else {
+        box.innerHTML = `<div class="quiz-container"><h3>مستوى ${level}</h3><p>سيتم إضافة اختبارات هذا المستوى لاحقًا.</p></div>`;
+      }
+    }
+
+    function quizTemplate(title, question, options) {
+      let html = `<div class="quiz-container">
+        <h3>${title}</h3>
+        <p>${question}</p>
+        <div class="quiz-options">`;
+      options.forEach((opt, i) => {
+        html += `<button onclick="checkAnswer(this, ${opt.correct ? 'true' : 'false'})">${opt.text}</button>`;
+      });
+      html += `</div><div class="result" style="margin-top:10px;font-weight:bold;"></div></div>`;
+      return html;
+    }
+
+    function checkAnswer(btn, correct) {
+      const result = btn.parentElement.nextElementSibling;
+      if (correct) {
+        result.textContent = "✔ إجابة صحيحة!";
+        result.style.color = "green";
+      } else {
+        result.textContent = "❌ إجابة خاطئة.";
+        result.style.color = "red";
+      }
+    }
   </script>
 </body>
 </html>
-
