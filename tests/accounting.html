@@ -3,38 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>اختبارات - مادة المحاسبة</title>
+  <title>اختبارات - المحاسبة</title>
   <link rel="stylesheet" href="../assets/style.css">
   <style>
-    .quiz-container {
-      background: #fff;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 10px #ccc;
-      margin-bottom: 20px;
-      text-align: center;
-    }
+    body { font-family: 'Cairo', sans-serif; background: #f3f4f6; margin: 0; }
+    header { background: #0077cc; color: white; padding: 15px; text-align: center; }
+    .subject-card { background: #fff; padding: 15px; margin: 10px; border-radius: 10px; display: inline-block; box-shadow: 0 2px 6px rgba(0,0,0,0.1); text-decoration:none; color:#000; transition:0.3s; }
+    .subject-card:hover { background: #0077cc; color: white; }
+    .quiz-container { background: #fff; padding: 20px; border-radius: 15px; box-shadow: 0 0 10px #ccc; margin-bottom: 20px; text-align: center; }
     .quiz-options button {
-      display: inline-block;
-      margin: 5px;
-      padding: 10px 20px;
-      background: #008cff;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s;
+      display: block; width: 100%; margin: 6px 0; padding: 10px;
+      background: #008cff; color: white; border: none;
+      border-radius: 10px; cursor: pointer; transition: 0.3s;
     }
     .quiz-options button:hover { background: #006ad1; }
+    #submitBtn { background: #28a745; color: white; border: none; padding: 12px 30px; border-radius: 10px; font-size: 16px; cursor: pointer; }
+    #submitBtn:hover { background: #1d8d3d; }
+    .result-box { background: #fff; padding: 20px; border-radius: 15px; margin-top: 20px; box-shadow: 0 0 10px #bbb; }
   </style>
 </head>
 <body>
   <header>
     <h1>🧮 اختبارات - مبادئ المحاسبة</h1>
-    <a href="../tests.html" class="back">⬅ الاختبارات</a>
   </header>
 
-  <main class="subject-container" style="padding:20px;">
+  <main class="subject-container" style="padding:20px;text-align:center;">
     <a href="#level1" class="subject-card" onclick="openLevel(1)">المستوى 1</a>
     <a href="#level2" class="subject-card" onclick="openLevel(2)">المستوى 2</a>
     <a href="#level3" class="subject-card" onclick="openLevel(3)">المستوى 3</a>
@@ -45,63 +38,72 @@
   <div id="levelBox" style="max-width:900px;margin:18px auto;"></div>
 
   <script>
+    let userAnswers = []; // حفظ إجابات المستخدم
+
     function openLevel(level) {
       const box = document.getElementById('levelBox');
       box.innerHTML = '';
+      userAnswers = [];
 
-      // مثال لمستوى 1 فيه اختبارات بسيطة
       if (level === 1) {
-        box.innerHTML += quizTemplate("اختبار 1", "المعادلة المحاسبية تتكون من:", [
-          { text: "الأصول = الخصوم + حقوق الملكية", correct: true },
-          { text: "الأصول = المصروفات + الإيرادات" },
-          { text: "الأصول = رأس المال + الإيرادات" }
-        ]);
-        box.innerHTML += quizTemplate("اختبار 2", "هل النقدية أصل متداول؟", [
-          { text: "صح", correct: true },
-          { text: "خطأ" }
-        ]);
-      }
-
-      // مثال لمستوى 2 متوسط
-      else if (level === 2) {
-        box.innerHTML += quizTemplate("اختبار 1", "أي مما يلي ليس من الأصول الثابتة:", [
-          { text: "الأراضي" },
-          { text: "المباني" },
-          { text: "المخزون", correct: true }
-        ]);
-        box.innerHTML += quizTemplate("اختبار 2", "قيد اليومية يُستخدم لتسجيل العمليات المالية.", [
-          { text: "صح", correct: true },
-          { text: "خطأ" }
-        ]);
-      }
-
-      // باقي المستويات لاحقًا
-      else {
+        const questions = [
+          { q: "المعادلة المحاسبية الصحيحة هي:", options: ["الأصول = الخصوم + حقوق الملكية", "الإيرادات = المصروفات", "الخصوم = الأصول + الإيرادات"], correct: 0 },
+          { q: "النقدية أصل متداول؟", options: ["صح", "خطأ"], correct: 0 },
+          { q: "ترجم كلمة 'Assets' بالعربية:", type: "text", correctText: "أصول" }
+        ];
+        loadQuiz(questions);
+      } else {
         box.innerHTML = `<div class="quiz-container"><h3>مستوى ${level}</h3><p>سيتم إضافة اختبارات هذا المستوى لاحقًا.</p></div>`;
       }
     }
 
-    function quizTemplate(title, question, options) {
-      let html = `<div class="quiz-container">
-        <h3>${title}</h3>
-        <p>${question}</p>
-        <div class="quiz-options">`;
-      options.forEach((opt, i) => {
-        html += `<button onclick="checkAnswer(this, ${opt.correct ? 'true' : 'false'})">${opt.text}</button>`;
+    function loadQuiz(questions) {
+      const box = document.getElementById('levelBox');
+      box.innerHTML = '';
+      questions.forEach((q, i) => {
+        let html = `<div class="quiz-container"><h3>سؤال ${i+1}</h3><p>${q.q}</p>`;
+        if (q.type === "text") {
+          html += `<input type="text" id="q${i}" class="text-answer" style="padding:8px;width:80%;border-radius:8px;border:1px solid #ccc;">`;
+        } else {
+          html += `<div class="quiz-options">`;
+          q.options.forEach((opt, j) => {
+            html += `<label><input type="radio" name="q${i}" value="${j}"> ${opt}</label><br>`;
+          });
+          html += `</div>`;
+        }
+        html += `</div>`;
+        box.innerHTML += html;
       });
-      html += `</div><div class="result" style="margin-top:10px;font-weight:bold;"></div></div>`;
-      return html;
+
+      box.innerHTML += `<button id="submitBtn" onclick="submitQuiz()">عرض النتيجة</button><div id="resultBox"></div>`;
+      window.currentQuestions = questions;
     }
 
-    function checkAnswer(btn, correct) {
-      const result = btn.parentElement.nextElementSibling;
-      if (correct) {
-        result.textContent = "✔ إجابة صحيحة!";
-        result.style.color = "green";
-      } else {
-        result.textContent = "❌ إجابة خاطئة.";
-        result.style.color = "red";
-      }
+    function submitQuiz() {
+      const questions = window.currentQuestions;
+      let score = 0;
+
+      questions.forEach((q, i) => {
+        let correct = false;
+        if (q.type === "text") {
+          const val = document.getElementById(`q${i}`).value.trim();
+          if (val === q.correctText) correct = true;
+        } else {
+          const selected = document.querySelector(`input[name="q${i}"]:checked`);
+          if (selected && parseInt(selected.value) === q.correct) correct = true;
+        }
+        userAnswers.push(correct);
+        if (correct) score++;
+      });
+
+      const percent = Math.round((score / questions.length) * 100);
+      let resultHTML = `<div class="result-box"><h3>نتيجتك: ${score} من ${questions.length} (${percent}%)</h3><ul>`;
+      userAnswers.forEach((c, i) => {
+        resultHTML += `<li>سؤال ${i+1}: ${c ? "✅ صحيح" : "❌ خطأ"}</li>`;
+      });
+      resultHTML += `</ul></div>`;
+
+      document.getElementById("resultBox").innerHTML = resultHTML;
     }
   </script>
 </body>
