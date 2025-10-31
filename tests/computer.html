@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -6,28 +5,132 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>اختبارات - مقدمة الحاسب</title>
   <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    .quiz-container {background:#fff;padding:20px;border-radius:15px;box-shadow:0 0 10px rgba(0,0,0,0.1);margin-bottom:20px;}
+    .quiz-options button {display:block;width:100%;margin:6px 0;padding:8px;border:none;border-radius:8px;background:#eee;cursor:pointer;}
+    .quiz-options button:hover {background:#ddd;}
+    .subject-card {display:inline-block;margin:10px;padding:15px 25px;background:#0078d7;color:#fff;border-radius:10px;text-decoration:none;font-weight:bold;}
+    .subject-card:hover {background:#005fa3;}
+    .result-box {background:#f1f1f1;padding:20px;border-radius:10px;margin-top:15px;}
+  </style>
 </head>
 <body>
   <header>
-    <h1>📝 اختبارات - مقدمة الحاسب</h1>
+    <h1>💻 اختبارات - مقدمة الحاسب</h1>
     <a href="../tests.html" class="back">⬅ الاختبارات</a>
   </header>
 
-  <main>
-    <div class="quiz-container">
-      <h2>اختبار بسيط: الحاسب</h2>
-      <p>سؤال: أي جزء هو معالج الكمبيوتر؟</p>
-      <div class="quiz-options">
-        <button onclick="show('خطأ')">القرص الصلب</button>
-        <button onclick="show('صح')">المعالج (CPU)</button>
-        <button onclick="show('خطأ')">الطابعة</button>
-      </div>
-      <div id="res" style="margin-top:10px;font-weight:bold;"></div>
-    </div>
+  <main class="subject-container" style="padding:20px;">
+    <a href="#level1" class="subject-card" onclick="openLevel(1)">المستوى 1</a>
+    <a href="#level2" class="subject-card" onclick="openLevel(2)">المستوى 2</a>
+    <a href="#level3" class="subject-card" onclick="openLevel(3)">المستوى 3</a>
+    <a href="#level4" class="subject-card" onclick="openLevel(4)">المستوى 4</a>
+    <a href="#level5" class="subject-card" onclick="openLevel(5)">المستوى 5</a>
   </main>
 
+  <div id="levelBox" style="max-width:900px;margin:18px auto;"></div>
+
   <script>
-    function show(ans){ document.getElementById('res').textContent = ans; }
+    const levels = {
+      1: {
+        title: "المستوى 1 - الأساسيات",
+        questions: [
+          {type:"صحخطأ",q:"جهاز الحاسب الآلي لا يستطيع العمل بدون برامج.",a:"صح"},
+          {type:"صحخطأ",q:"البرامج التطبيقية تستخدم لإدارة مكونات الحاسب.",a:"خطأ"},
+          {type:"اختر",q:"وحدة المعالجة المركزية تُعرف بـ:",opts:["CPU","RAM","ROM","USB"],a:"CPU"},
+          {type:"اختر",q:"أداة الإدخال الرئيسية هي:",opts:["الطابعة","الماوس","الشاشة","السماعة"],a:"الماوس"},
+          {type:"اكمل",q:"الذاكرة المؤقتة تسمى _______",a:"RAM"},
+          {type:"اكمل",q:"وحدة إخراج تستخدم للطباعة هي _______",a:"الطابعة"},
+          {type:"رتب",q:"رتب خطوات تشغيل الحاسب:",opts:["الضغط على زر التشغيل","تحميل نظام التشغيل","البدء باستخدام البرامج"],a:"الضغط على زر التشغيل,تحميل نظام التشغيل,البدء باستخدام البرامج"}
+        ]
+      },
+      2: {
+        title: "المستوى 2 - مكونات الحاسب",
+        questions: [
+          {type:"صحخطأ",q:"السوفت وير يشير إلى المكونات المادية.",a:"خطأ"},
+          {type:"اختر",q:"أي مما يلي يُعد من وحدات الإخراج؟",opts:["الماوس","الشاشة","لوحة المفاتيح","الماسح الضوئي"],a:"الشاشة"},
+          {type:"اكمل",q:"القرص الصلب يعتبر وحدة _______",a:"تخزين"},
+          {type:"رتب",q:"رتب هذه الوحدات حسب سرعة المعالجة:",opts:["RAM","CPU","القرص الصلب"],a:"CPU,RAM,القرص الصلب"}
+        ]
+      },
+      3: {
+        title: "المستوى 3 - البرمجيات",
+        questions: [
+          {type:"صحخطأ",q:"نظام التشغيل هو حلقة الوصل بين المستخدم والحاسب.",a:"صح"},
+          {type:"اختر",q:"أشهر أنظمة التشغيل هو:",opts:["Windows","Excel","Access","Word"],a:"Windows"},
+          {type:"اكمل",q:"برنامج معالج النصوص من مايكروسوفت يسمى _______",a:"Word"},
+          {type:"رتب",q:"رتب خطوات تشغيل برنامج:",opts:["تشغيل النظام","اختيار البرنامج","فتح الملف"],a:"تشغيل النظام,اختيار البرنامج,فتح الملف"}
+        ]
+      },
+      4: {
+        title: "المستوى 4 - الإنترنت والشبكات",
+        questions: [
+          {type:"صحخطأ",q:"البريد الإلكتروني من خدمات الإنترنت.",a:"صح"},
+          {type:"اختر",q:"المتصفح الذي نستخدمه للدخول إلى الإنترنت:",opts:["Word","Chrome","Excel","Access"],a:"Chrome"},
+          {type:"اكمل",q:"عنوان الموقع الإلكتروني يُعرف باسم _______",a:"URL"},
+          {type:"رتب",q:"رتب خطوات إرسال بريد إلكتروني:",opts:["كتابة الرسالة","إدخال العنوان","إرسال"],a:"إدخال العنوان,كتابة الرسالة,إرسال"}
+        ]
+      },
+      5: {
+        title: "المستوى 5 - الأمان والاحتراف",
+        questions: [
+          {type:"صحخطأ",q:"الفيروسات لا تؤثر على البيانات.",a:"خطأ"},
+          {type:"اختر",q:"برنامج الحماية من الفيروسات يسمى:",opts:["Excel","Antivirus","Access","Paint"],a:"Antivirus"},
+          {type:"اكمل",q:"نسخ البيانات احتياطيًا يحمي من _______",a:"الفقد"},
+          {type:"رتب",q:"رتب خطوات نسخ احتياطي:",opts:["اختيار الملفات","تحديد وجهة الحفظ","تنفيذ النسخ"],a:"اختيار الملفات,تحديد وجهة الحفظ,تنفيذ النسخ"}
+        ]
+      }
+    };
+
+    let answers = [];
+
+    function openLevel(n){
+      const box = document.getElementById('levelBox');
+      const level = levels[n];
+      answers = [];
+      let html = `<div class="quiz-container"><h2>${level.title}</h2>`;
+      level.questions.forEach((q,i)=>{
+        html += `<div style="margin-bottom:15px;"><p><b>${i+1}. ${q.q}</b></p>`;
+        if(q.type==="صحخطأ"){
+          html += `<button onclick="saveAns(${i},'صح','${q.a}')">صح</button>
+                   <button onclick="saveAns(${i},'خطأ','${q.a}')">خطأ</button>`;
+        } else if(q.type==="اختر"){
+          q.opts.forEach(opt=>{
+            html += `<button onclick="saveAns(${i},'${opt}','${q.a}')">${opt}</button>`;
+          });
+        } else if(q.type==="اكمل"){
+          html += `<input type="text" id="input${i}" placeholder="أكمل هنا" style="width:90%;padding:6px;border-radius:8px;"> 
+                   <button onclick="saveInput(${i},'${q.a}')">تأكيد</button>`;
+        } else if(q.type==="رتب"){
+          html += `<p>الترتيب الصحيح: ${q.opts.join(" ➜ ")}</p>`;
+        }
+        html += `</div>`;
+      });
+      html += `<button onclick="showResult(${n})" style="background:#0078d7;color:#fff;padding:10px 20px;border:none;border-radius:10px;">عرض النتيجة</button></div>`;
+      box.innerHTML = html;
+    }
+
+    function saveAns(i,ans,correct){
+      answers[i] = (ans===correct);
+    }
+
+    function saveInput(i,correct){
+      const val = document.getElementById('input'+i).value.trim();
+      answers[i] = (val === correct);
+    }
+
+    function showResult(n){
+      const total = levels[n].questions.length;
+      const correct = answers.filter(Boolean).length;
+      const percent = Math.round((correct/total)*100);
+      let res = `<div class="result-box"><h3>نتيجتك:</h3><p>عدد الإجابات الصحيحة: ${correct} من ${total}</p><p>النسبة المئوية: ${percent}%</p>`;
+      res += `<h4>التفاصيل:</h4>`;
+      levels[n].questions.forEach((q,i)=>{
+        res += `<p>${i+1}. ${q.q} — <b>${answers[i] ? "✅ صحيحة" : "❌ خطأ"}</b></p>`;
+      });
+      res += `</div>`;
+      document.getElementById('levelBox').innerHTML += res;
+    }
   </script>
 </body>
 </html>
