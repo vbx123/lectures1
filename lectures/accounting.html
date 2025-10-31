@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
@@ -14,35 +15,44 @@
 
   <main class="video-page">
     <div class="video-player">
-      <video controls>
-        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-        المتصفح لا يدعم تشغيل الفيديو.
-      </video>
+      <iframe id="lectureVideo" width="100%" height="400" src="https://www.youtube.com/embed/wfljkWpelgY" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <div class="video-info">
-      <h2>محاضرة 1: معادلة المحاسبة</h2>
-      <p>مفاهيم أساسية عن الأصول والخصوم وحقوق الملكية.</p>
-    </div>
+```
+<div class="video-info">
+  <h2>محاضرة 1: مدخل إلى المحاسبة المالية</h2>
+  <p>مقدمة عامة عن مفهوم المحاسبة وأهدافها وعلاقتها بالمنشآت.</p>
+</div>
 
-    <div class="video-buttons">
-      <button onclick="changeVideo('https://www.w3schools.com/html/mov_bbb.mp4','محاضرة 1: معادلة المحاسبة','مفاهيم الأصول والخصوم')">محاضرة 1</button>
-      <button onclick="changeVideo('https://www.w3schools.com/html/movie.mp4','محاضرة 2: قيود اليومية','كيفية تسجيل القيود')">محاضرة 2</button>
-      <button onclick="changeVideo('https://www.w3schools.com/html/mov_bbb.mp4','محاضرة 3: القوائم المالية','مقدمة عن القوائم المالية')">محاضرة 3</button>
-    </div>
+<div class="video-buttons">
+  <button onclick="changeVideo('wfljkWpelgY','محاضرة 1: مدخل إلى المحاسبة المالية','مقدمة عامة عن مفهوم المحاسبة وأهدافها.')">محاضرة 1</button>
+  <button onclick="changeVideo('UidBhDn1wm8','محاضرة 2: المعادلة المحاسبية','شرح مكونات المعادلة المحاسبية وأمثلة تطبيقية.')">محاضرة 2</button>
+  <button onclick="changeVideo('aWlMiwaMz5w','محاضرة 3: القيود اليومية','كيفية تسجيل العمليات المالية في دفتر اليومية.')">محاضرة 3</button>
+  <button onclick="changeVideo('nm4zlbfO4MM','محاضرة 4: دفتر الأستاذ','شرح آلية الترحيل من اليومية إلى الأستاذ.')">محاضرة 4</button>
+  <button onclick="changeVideo('Dhp15pty-Nc','محاضرة 5: ميزان المراجعة','إعداد ميزان المراجعة وأهميته في اكتشاف الأخطاء.')">محاضرة 5</button>
+  <button onclick="changeVideo('PRz3axM_Y7Y','محاضرة 6: التسويات الجردية','مفهوم التسويات وأنواعها وكيفية إعدادها.')">محاضرة 6</button>
+  <button onclick="changeVideo('_8ZBXrec7mQ','محاضرة 7: حسابات الإيرادات والمصروفات','كيفية التعامل مع الإيرادات والمصروفات في نهاية الفترة.')">محاضرة 7</button>
+  <button onclick="changeVideo('1pjg2_aWplE','محاضرة 8: القوائم المالية','مقدمة في إعداد قائمة الدخل والميزانية العمومية.')">محاضرة 8</button>
+  <button onclick="changeVideo('beGIzIYT_x0','محاضرة 9: قائمة الدخل','شرح مكونات قائمة الدخل وتحليل النتائج.')">محاضرة 9</button>
+  <button onclick="changeVideo('_7VhO-c-mvw','محاضرة 10: الميزانية العمومية','عرض تفصيلي لمكونات الأصول والخصوم وحقوق الملكية.')">محاضرة 10</button>
+  <button onclick="changeVideo('EqBqXO8OkZw','محاضرة 11: الدورة المحاسبية','شرح مراحل الدورة المحاسبية من التسجيل إلى التقارير.')">محاضرة 11</button>
+  <button onclick="changeVideo('kP7fRiDflCk','محاضرة 12: تطبيقات محاسبية','أمثلة عملية على المعادلة والقيود والتقارير المالية.')">محاضرة 12</button>
+  <button onclick="changeVideo('1q3_at67abk','المراجعة النهائية','مراجعة شاملة لمقرر مبادئ المحاسبة المالية وأهم المفاهيم.')">📘 المراجعة النهائية</button>
+</div>
+```
+
   </main>
 
   <script>
-    function changeVideo(src, title, desc) {
-      const video = document.querySelector("video");
+    function changeVideo(videoId, title, desc) {
+      const iframe = document.getElementById("lectureVideo");
       const h2 = document.querySelector(".video-info h2");
       const p = document.querySelector(".video-info p");
-      video.src = src;
+      iframe.src = `https://www.youtube.com/embed/${videoId}`;
       h2.textContent = title;
       p.textContent = desc;
-      video.play();
     }
   </script>
+
 </body>
 </html>
-
