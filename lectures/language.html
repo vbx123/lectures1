@@ -14,35 +14,33 @@
 
   <main class="video-page">
     <div class="video-player">
-      <video controls>
-        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-        المتصفح لا يدعم تشغيل الفيديو.
-      </video>
+      <iframe id="lectureVideo" width="100%" height="315" 
+        src="https://www.youtube.com/embed/7hO5TJbzBgw" 
+        title="محاضرة 1: أساسيات المصطلحات التجارية بالإنجليزية"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen></iframe>
     </div>
 
     <div class="video-info">
-      <h2>محاضرة 1: أساسيات المصطلحات التجارية بالإنجليزية</h2>
-      <p>مفردات ومصطلحات أساسية في التجارة باللغة الإنجليزية.</p>
+      <h2 id="videoTitle">محاضرة 1: أساسيات المصطلحات التجارية بالإنجليزية</h2>
+      <p id="videoDesc">مفردات ومصطلحات أساسية في التجارة باللغة الإنجليزية.</p>
     </div>
 
     <div class="video-buttons">
-      <button onclick="changeVideo('https://www.w3schools.com/html/mov_bbb.mp4','محاضرة 1: مصطلحات تجارية','مفردات أساسية')">محاضرة 1</button>
-      <button onclick="changeVideo('https://www.w3schools.com/html/movie.mp4','محاضرة 2: كتابة رسائل رسمية','نماذج عملية')">محاضرة 2</button>
-      <button onclick="changeVideo('https://www.w3schools.com/html/mov_bbb.mp4','محاضرة 3: قراءة وفهم نصوص تجارية','تمارين تطبيقية')">محاضرة 3</button>
+      <button onclick="changeVideo('7hO5TJbzBgw','محاضرة 1: مصطلحات تجارية','مفردات أساسية')">محاضرة 1</button>
     </div>
   </main>
 
   <script>
-    function changeVideo(src, title, desc) {
-      const video = document.querySelector("video");
-      const h2 = document.querySelector(".video-info h2");
-      const p = document.querySelector(".video-info p");
-      video.src = src;
+    function changeVideo(videoId, title, desc) {
+      const iframe = document.getElementById("lectureVideo");
+      const h2 = document.getElementById("videoTitle");
+      const p = document.getElementById("videoDesc");
+
+      iframe.src = `https://www.youtube.com/embed/${videoId}`;
       h2.textContent = title;
       p.textContent = desc;
-      video.play();
     }
   </script>
 </body>
 </html>
-
