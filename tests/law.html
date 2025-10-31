@@ -1,56 +1,447 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>اختبارات - مدخل القانون</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>اختبار: مدخل القانون — شعبة عامة (فرقة أولى)</title>
   <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    /* تصميم متناسق مع صفحاتك السابقة */
+    body { background:#f4f6f8; font-family: "Noto Naskh Arabic", "Cairo", sans-serif; margin:0; color:#122; }
+    header { background:#0077cc; color:#fff; padding:14px 18px; display:flex; align-items:center; justify-content:space-between; }
+    header h1 { margin:0; font-size:20px; }
+    header a.back { color:#fff; text-decoration:none; background:rgba(255,255,255,0.08); padding:8px 12px; border-radius:8px; }
+    main { max-width:980px; margin:20px auto; padding:0 16px; }
+    .section-card { background:#fff; border-radius:12px; padding:16px; box-shadow:0 4px 12px rgba(0,0,0,0.06); margin-bottom:18px; }
+    .section-title { font-size:18px; margin-bottom:12px; color:#074a83; display:flex; justify-content:space-between; align-items:center; }
+    .question { padding:10px 12px; border-radius:8px; background:#fbfdff; margin-bottom:10px; border:1px solid #edf2f7; }
+    .q-text { font-weight:600; margin-bottom:8px; }
+    .options label { display:block; margin:6px 0; cursor:pointer; }
+    input[type="radio"], input[type="checkbox"] { margin-left:8px; }
+    .small-input { padding:8px; border-radius:8px; border:1px solid #ccc; width:100%; box-sizing:border-box; }
+    .order-input { width:68px; padding:8px; border-radius:8px; border:1px solid #ccc; text-align:center; }
+    #submitBtn { background:#28a745; color:#fff; border:none; padding:12px 18px; border-radius:10px; font-size:16px; cursor:pointer; }
+    #submitBtn:hover { background:#1f8a37; }
+    .result-box { background:#fff; padding:16px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.06); margin-top:16px; }
+    .correct { color:green; font-weight:700; }
+    .wrong { color:red; font-weight:700; }
+    .answer-line { margin:6px 0; padding:8px; border-radius:8px; background:#f7fafc; border:1px solid #eef2f7; }
+    .meta { font-size:14px; color:#555; }
+    .hint { font-size:13px; color:#666; margin-bottom:8px; }
+  </style>
 </head>
 <body>
   <header>
-    <h1>📝 اختبارات - مدخل القانون</h1>
+    <h1>اختبار: مدخل القانون — شعبة عامة (فرقة أولى)</h1>
     <a href="../tests.html" class="back">⬅ الاختبارات</a>
   </header>
 
   <main>
-    <div class="quiz-container" id="quiz">
-      <h2>اختبار تجريبي: مدخل القانون</h2>
-      <div id="questionBox"></div>
-      <div id="optionsBox" class="quiz-options"></div>
-      <div style="margin-top:12px;">
-        <button id="nextBtn" style="padding:10px 16px;">السؤال التالي</button>
+    <p class="hint">حل كل الأسئلة ثم اضغط "عرض النتيجة" عشان تظهر النتيجة والتصحيح. (لا تظهر الإجابات أثناء الحل)</p>
+
+    <!-- قسم 1: صح أو خطأ (5 أسئلة) -->
+    <section class="section-card" id="tf-section">
+      <div class="section-title"><span>أ — صح أو خطأ (المستوى 1 — سهل)</span><span class="meta">5 أسئلة</span></div>
+
+      <div class="question" data-qtype="tf" data-qid="tf1">
+        <div class="q-text">1) القانون مجموعة قواعد سلوكية تلتزم بها كل فئات المجتمع أثناء حياتهم.</div>
+        <div class="options">
+          <label><input type="radio" name="tf1" value="true"> صح</label>
+          <label><input type="radio" name="tf1" value="false"> خطأ</label>
+        </div>
       </div>
-      <div id="result" style="margin-top:12px;font-weight:bold;"></div>
+
+      <div class="question" data-qtype="tf" data-qid="tf2">
+        <div class="q-text">2) المصدر الرئيسي للقانون هو العرف فقط.</div>
+        <div class="options">
+          <label><input type="radio" name="tf2" value="true"> صح</label>
+          <label><input type="radio" name="tf2" value="false"> خطأ</label>
+        </div>
+      </div>
+
+      <div class="question" data-qtype="tf" data-qid="tf3">
+        <div class="q-text">3) القاعدة القانونية تميز بين السلوك المشروع وغير المشروع وتترتب عليها عقوبة في حالة المخالفة.</div>
+        <div class="options">
+          <label><input type="radio" name="tf3" value="true"> صح</label>
+          <label><input type="radio" name="tf3" value="false"> خطأ</label>
+        </div>
+      </div>
+
+      <div class="question" data-qtype="tf" data-qid="tf4">
+        <div class="q-text">4) كل القواعد القانونية ثابتة ولا تتغير بمرور الزمن.</div>
+        <div class="options">
+          <label><input type="radio" name="tf4" value="true"> صح</label>
+          <label><input type="radio" name="tf4" value="false"> خطأ</label>
+        </div>
+      </div>
+
+      <div class="question" data-qtype="tf" data-qid="tf5">
+        <div class="q-text">5) الدستور يعتبر أعلى مرتبة في هرم القوانين في الدولة.</div>
+        <div class="options">
+          <label><input type="radio" name="tf5" value="true"> صح</label>
+          <label><input type="radio" name="tf5" value="false"> خطأ</label>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم 2: اختر الإجابة الصحيحة (5 أسئلة) -->
+    <section class="section-card" id="mc-section">
+      <div class="section-title"><span>ب — اختر الإجابة الصحيحة (المستوى 2 — متوسط)</span><span class="meta">5 أسئلة</span></div>
+
+      <div class="question" data-qtype="mc" data-qid="mc1">
+        <div class="q-text">1) أي مما يلي يُعد من مصادر القانون المكتوب؟</div>
+        <div class="options">
+          <label><input type="radio" name="mc1" value="0"> العرف فقط</label>
+          <label><input type="radio" name="mc1" value="1"> التشريع (القوانين واللوائح)</label>
+          <label><input type="radio" name="mc1" value="2"> الفقه القضائي فقط</label>
+          <label><input type="radio" name="mc1" value="3"> الأخلاق</label>
+        </div>
+      </div>
+
+      <div class="question" data-qtype="mc" data-qid="mc2">
+        <div class="q-text">2) القاعدة القانونية التي تُلزم شخصًا بأداء أو الامتناع عن عمل تسمى:</div>
+        <div class="options">
+          <label><input type="radio" name="mc2" value="0"> قاعدة تفسير</label>
+          <label><input type="radio" name="mc2" value="1"> قاعدة جزائية</label>
+          <label><input type="radio" name="mc2" value="2"> قاعدة إلزامية</label>
+          <label><input type="radio" name="mc2" value="3"> قاعدة عرفية</label>
+        </div>
+      </div>
+
+      <div class="question" data-qtype="mc" data-qid="mc3">
+        <div class="q-text">3) أي من الخيارات التالية يندرج تحت القانون العام؟</div>
+        <div class="options">
+          <label><input type="radio" name="mc3" value="0"> القانون الدستوري</label>
+          <label><input type="radio" name="mc3" value="1"> القانون الخاص</label>
+          <label><input type="radio" name="mc3" value="2"> العقود الخاصة بين الأفراد</label>
+          <label><input type="radio" name="mc3" value="3"> الأحوال الشخصية</label>
+        </div>
+      </div>
+
+      <div class="question" data-qtype="mc" data-qid="mc4">
+        <div class="q-text">4) من وظائف القانون الأساسية:</div>
+        <div class="options">
+          <label><input type="radio" name="mc4" value="0"> تنظيم سلوك الأفراد وحماية الحقوق</label>
+          <label><input type="radio" name="mc4" value="1"> جذب السياح فقط</label>
+          <label><input type="radio" name="mc4" value="2"> زيادة الدخل الحكومي فقط</label>
+          <label><input type="radio" name="mc4" value="3"> تنظيم الطقس</label>
+        </div>
+      </div>
+
+      <div class="question" data-qtype="mc" data-qid="mc5">
+        <div class="q-text">5) أي عبارة تصف القانون الجنائي بدقة؟</div>
+        <div class="options">
+          <label><input type="radio" name="mc5" value="0"> يهتم بالنزاعات بين الأفراد دون عقوبات</label>
+          <label><input type="radio" name="mc5" value="1"> يهتم بعقاب السلوكيات المخالفة للنظام العام</label>
+          <label><input type="radio" name="mc5" value="2"> يهتم بتنظيم العقود فقط</label>
+          <label><input type="radio" name="mc5" value="3"> يهتم بتنظيم التجارة الدولية فقط</label>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم 3: رتب الجمل (5 أسئلة) -->
+    <section class="section-card" id="order-section">
+      <div class="section-title"><span>ج — رتب الجمل (المستوى 3 — متقدم)</span><span class="meta">5 أسئلة</span></div>
+
+      <div class="question" data-qtype="order" data-qid="ord1">
+        <div class="q-text">1) رتب خطوات الدورة التشريعية الصحيحة (من بدء الاقتراح حتى العمل به):</div>
+        <div class="options">
+          <ol>
+            <li>النشر في الجريدة الرسمية</li>
+            <li>مناقشة واقتراح المشروع في البرلمان</li>
+            <li>إقرار المشروع وتوقيع الرئيس (أو المختص)</li>
+            <li>عرض مشروع القانون أو مسودته</li>
+          </ol>
+          <div style="margin-top:8px;">
+            <label>رتب الأرقام (مثال: 4-2-3-1)</label><br>
+            <input class="order-input" id="ord1_in" placeholder="رتب" />
+          </div>
+        </div>
+      </div>
+
+      <div class="question" data-qtype="order" data-qid="ord2">
+        <div class="q-text">2) رتب مراحل الحماية القانونية لحقوق الملكية (من البداية حتى النهاية):</div>
+        <div class="options">
+          <ol>
+            <li>إجراءات التحفظ أو التسجيل</li>
+            <li>الاعتراف القانوني ووجود الحق</li>
+            <li>ممارسة الحق واستخدامه من قبل صاحبه</li>
+            <li>الحماية القضائية في حال النزاع</li>
+          </ol>
+          <div style="margin-top:8px;">
+            <label>رتب الأرقام (مثل: 2-3-1-4)</label><br>
+            <input class="order-input" id="ord2_in" placeholder="رتب" />
+          </div>
+        </div>
+      </div>
+
+      <div class="question" data-qtype="order" data-qid="ord3">
+        <div class="q-text">3) رتب مكونات القاعدة القانونية (من التمهيد إلى الجزاء):</div>
+        <div class="options">
+          <ol>
+            <li>الجزاء (العقوبة أو التعويض)</li>
+            <li>الفرض (ما يجب على المكلَّف عمله)</li>
+            <li>الحكم (النص القانوني نفسه)</li>
+            <li>دوافع التأسيس أو المبررات (أحيانًا تُذكر)</li>
+          </ol>
+          <div style="margin-top:8px;">
+            <label>رتب الأرقام</label><br>
+            <input class="order-input" id="ord3_in" placeholder="رتب" />
+          </div>
+        </div>
+      </div>
+
+      <div class="question" data-qtype="order" data-qid="ord4">
+        <div class="q-text">4) رتب هيكل القضاء من حيث التدرج (من الأدنى إلى الأعلى):</div>
+        <div class="options">
+          <ol>
+            <li>المحكمة الابتدائية (أو ابتدائية)</li>
+            <li>محكمة الاستئناف</li>
+            <li>محكمة النقض (أو أعلى درجة)</li>
+            <li>المحاكم الإدارية المختصة (حسب النظام)</li>
+          </ol>
+          <div style="margin-top:8px;">
+            <label>رتب الأرقام</label><br>
+            <input class="order-input" id="ord4_in" placeholder="رتب" />
+          </div>
+        </div>
+      </div>
+
+      <div class="question" data-qtype="order" data-qid="ord5">
+        <div class="q-text">5) رتب تسلسل مصادر التشريع العامة (من الأعلى إلى الأدنى):</div>
+        <div class="options">
+          <ol>
+            <li>الدستور</li>
+            <li>القوانين العضوية (إن وُجدت)</li>
+            <li>القوانين العادية واللوائح التنفيذية</li>
+            <li>الفقه القضائي والعهود الدولية بعد التصديق</li>
+          </ol>
+          <div style="margin-top:8px;">
+            <label>رتب الأرقام (مثال: 1-2-3-4)</label><br>
+            <input class="order-input" id="ord5_in" placeholder="رتب" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم 4: أكمل الفراغ (5 أسئلة) -->
+    <section class="section-card" id="fill-section">
+      <div class="section-title"><span>د — أكمل الفراغ (المستوى 4 — صعب)</span><span class="meta">5 أسئلة</span></div>
+
+      <div class="question" data-qtype="fill" data-qid="f1">
+        <div class="q-text">1) الشخص الذي يصدر عنه الحكم في المحكمة العليا يسمى ________.</div>
+        <input id="f1_in" class="small-input" placeholder="أكمل هنا..." />
+      </div>
+
+      <div class="question" data-qtype="fill" data-qid="f2">
+        <div class="q-text">2) عندما يقوم المشرع بسن قانون جديد، فإن نشره يتم في ________.</div>
+        <input id="f2_in" class="small-input" placeholder="أكمل هنا..." />
+      </div>
+
+      <div class="question" data-qtype="fill" data-qid="f3">
+        <div class="q-text">3) مبدأ يقرر أسبقية الدستور على القوانين العادية يسمى مبدأ ________.</div>
+        <input id="f3_in" class="small-input" placeholder="أكمل هنا..." />
+      </div>
+
+      <div class="question" data-qtype="fill" data-qid="f4">
+        <div class="q-text">4) القوانين التي تنظم العلاقات بين الدول تسمى ________ الدولية.</div>
+        <input id="f4_in" class="small-input" placeholder="أكمل هنا..." />
+      </div>
+
+      <div class="question" data-qtype="fill" data-qid="f5">
+        <div class="q-text">5) السلطة التي تفسر القوانين وتطبقها هي ________.</div>
+        <input id="f5_in" class="small-input" placeholder="أكمل هنا..." />
+      </div>
+    </section>
+
+    <div style="text-align:center; margin:14px 0;">
+      <button id="submitBtn" onclick="submitQuiz()">عرض النتيجة</button>
     </div>
+
+    <div id="resultArea"></div>
   </main>
 
   <script>
-    const quizData = [
-      {q: "ما هي معادلة القانون الأساسية؟", options: ["حُكم واحد","قواعد للسلوك","حقوق وواجبات"], a: 1},
-      {q: "ما هو مصدر القانون؟", options: ["العدالة","التشريع","الشعب"], a: 1}
-    ];
-    let idx = 0, score = 0;
-    function loadQuestion(i){
-      const q = quizData[i];
-      document.getElementById('questionBox').innerHTML = '<p class="quiz-question">'+(i+1)+'. '+q.q+'</p>';
-      const opts = q.options.map((op, j) => `<button onclick="select(${j})">${op}</button>`).join('');
-      document.getElementById('optionsBox').innerHTML = opts;
+    /**********************
+     * بيانات الإجابات الصحيحة (المعرفة داخل السكربت)
+     * لاحظ: المقارنات في النصوص تكون بحساسية أقل (trim + lowercase)
+     **********************/
+    const answers = {
+      // صح/خطأ: true = صح, false = خطأ
+      tf: {
+        tf1: true,   // القانون مجموعة قواعد...
+        tf2: false,  // المصدر الرئيسي ليس العرف فقط
+        tf3: true,   // القاعدة القانونية تميز بين المشروع وغير المشروع...
+        tf4: false,  // ليست ثابتة
+        tf5: true    // الدستور أعلى مرتبة
+      },
+
+      // اختر الإجابة الصحيحة: نستخدم رقم الخيار الصحيح (0-based index)
+      mc: {
+        mc1: 1, // التشريع
+        mc2: 2, // قاعدة إلزامية
+        mc3: 0, // القانون الدستوري
+        mc4: 0, // تنظيم سلوك الأفراد وحماية الحقوق
+        mc5: 1  // يهتم بعقاب السلوكيات المخالفة للنظام العام
+      },
+
+      // رتب الجمل: نحدد الترتيب الصحيح كسلسلة أرقام مفصولة بشرطة (مطابقة لصيغة الإدخال)
+      // ملاحظة: الأسئلة تعرض عناصر مرقمة بالترتيب المعروض؛ المستخدم يدخل أرقام الترتيب (مثال: 4-2-3-1)
+      order: {
+        ord1: "4-2-3-1",   // عرض مشروع القانون -> مناقشة -> إقرار -> نشر
+        ord2: "2-3-1-4",   // الاعتراف -> ممارسة -> إجراءات التحفظ -> الحماية القضائية
+        ord3: "4-2-3-1",   // دوافع التأسيس -> الفرض -> الحكم -> الجزاء  (ممكن قبول ترتيب منطقي هذا)
+        // ملاحظة: ord3 قد تختلف في بعض المراجع، اخترت ترتيب منطقي متدرج هنا
+        ord4: "1-4-2-3",   // الابتدائية -> المحاكم الادارية (حسب النظام) -> استئناف -> نقض  (يختلف بين النظم؛ هذا ترتيب للأمثلة)
+        ord5: "1-2-3-4"    // الدستور -> القوانين العضوية -> القوانين العادية واللوائح -> الفقه القضائي / الاتفاقيات الدولية
+      },
+
+      // أكمل الفراغ: نقوم بالمقارنة بعد تنظيف النص
+      fill: {
+        f1: ["قاضي", "قاضي المحكمة", "قاضي الأعلى", "قاضي المحكمة العليا", "قاضي المحكمة العليا"], // قبول بدائل
+        f2: ["الجريدة الرسمية", "الصحيفة الرسمية", "الجريدة الرسمية للدولة"],
+        f3: ["فوقية الدستور", "أسبقية الدستور", "أساسية الدستور", "سلطة الدستور", "سيادة الدستور", "العلوية الدستورية"],
+        f4: ["القانون", "القوانين", "القوانين الدولية", "العلاقات الدولية"], // نتحقق من وجود كلمة "دولية" أو "القانون الدولي"
+        f5: ["السلطة القضائية", "القضاء", "الجهة القضائية", "القضاء الوطني"]
+      }
+    };
+
+    // تابع التحقق: لا نُظهر أي نتيجة أثناء الإجابة
+    function submitQuiz() {
+      const resultArea = document.getElementById("resultArea");
+      resultArea.innerHTML = ""; // إعادة تهيئة
+
+      let totalQuestions = 0;
+      let correctCount = 0;
+      const details = []; // لتخزين تفاصيل كل سؤال
+
+      // === تحقق أسئلة صح/خطأ ===
+      for (let i = 1; i <= 5; i++) {
+        const qid = "tf" + i;
+        totalQuestions++;
+        const radios = document.querySelectorAll(`input[name="${qid}"]`);
+        let selected = null;
+        radios.forEach(r => { if (r.checked) selected = r.value; });
+        const userAnswer = (selected === "true" ? true : (selected === "false" ? false : null));
+        const correct = answers.tf[qid];
+        const isCorrect = (userAnswer !== null && userAnswer === correct);
+        if (isCorrect) correctCount++;
+        details.push({
+          section: "صح/خطأ",
+          qid,
+          qText: document.querySelector(`[data-qid="${qid}"] .q-text`).textContent.trim(),
+          userAnswer: userAnswer === null ? "لم تُجَب" : (userAnswer ? "صح" : "خطأ"),
+          correctAnswer: correct ? "صح" : "خطأ",
+          isCorrect
+        });
+      }
+
+      // === تحقق أسئلة اختيار متعدد ===
+      for (let i = 1; i <= 5; i++) {
+        const qid = "mc" + i;
+        totalQuestions++;
+        const selected = document.querySelector(`input[name="${qid}"]:checked`);
+        const userIdx = selected ? parseInt(selected.value, 10) : null;
+        const correctIdx = answers.mc[qid];
+        // استخرج نص الإجابة التي اختارها (إن وجدت)
+        let userText = "لم تُجَب";
+        if (userIdx !== null) {
+          const optLabel = document.querySelector(`[data-qid="${qid}"] .options label:nth-child(${userIdx+1})`);
+          userText = optLabel ? optLabel.textContent.trim() : `الخيار ${userIdx+1}`;
+        }
+        const correctLabel = document.querySelector(`[data-qid="${qid}"] .options label:nth-child(${correctIdx+1})`);
+        const correctText = correctLabel ? correctLabel.textContent.trim() : `الخيار ${correctIdx+1}`;
+        const isCorrect = (userIdx !== null && userIdx === correctIdx);
+        if (isCorrect) correctCount++;
+        details.push({
+          section: "اختر الإجابة الصحيحة",
+          qid,
+          qText: document.querySelector(`[data-qid="${qid}"] .q-text`).textContent.trim(),
+          userAnswer: userText,
+          correctAnswer: correctText,
+          isCorrect
+        });
+      }
+
+      // === تحقق أسئلة رتب الجمل ===
+      for (let i = 1; i <= 5; i++) {
+        const qid = "ord" + i;
+        totalQuestions++;
+        const input = document.getElementById(qid + "_in") || document.getElementById(qid + "in") || document.getElementById(qid + "_in");
+        // في التصميم استخدمنا ids: ord1_in, ord2_in, ...
+        const el = document.getElementById(qid + "_in");
+        let userVal = el ? el.value.trim() : "";
+        // تطبيع: إزالة مسافات، تغيير الفواصل إلى -
+        userVal = userVal.replace(/\s+/g, '').replace(/[,؛،]/g, '-');
+        // إذا المستخدم استخدم شرطات مختلفة أو مسافات، نجعل الصيغة 1-2-3-4
+        const normalized = userVal;
+        const correctPattern = answers.order[qid] ? answers.order[qid].replace(/\s+/g, '') : "";
+        const isCorrect = (normalized.length > 0 && normalized === correctPattern);
+        if (isCorrect) correctCount++;
+        details.push({
+          section: "رتب الجمل",
+          qid,
+          qText: document.querySelector(`[data-qid="${qid}"] .q-text`).textContent.trim(),
+          userAnswer: normalized === "" ? "لم تُجَب" : normalized,
+          correctAnswer: correctPattern,
+          isCorrect
+        });
+      }
+
+      // === تحقق أسئلة أكمل الفراغ ===
+      for (let i = 1; i <= 5; i++) {
+        const qid = "f" + i;
+        totalQuestions++;
+        const el = document.getElementById(qid + "_in");
+        let userText = el ? el.value.trim() : "";
+        const cleaned = userText.toLowerCase().replace(/^\s+|\s+$/g, '');
+        let isCorrect = false;
+        if (cleaned.length > 0) {
+          const possibles = answers.fill[qid] || [];
+          for (let alt of possibles) {
+            const altClean = alt.toLowerCase().trim();
+            if (altClean === cleaned || altClean.includes(cleaned) || cleaned.includes(altClean)) {
+              isCorrect = true; break;
+            }
+          }
+        }
+        if (isCorrect) correctCount++;
+        details.push({
+          section: "أكمل الفراغ",
+          qid,
+          qText: document.querySelector(`[data-qid="${qid}"] .q-text`).textContent.trim(),
+          userAnswer: userText === "" ? "لم تُجَب" : userText,
+          correctAnswer: answers.fill[qid].join(" / "),
+          isCorrect
+        });
+      }
+
+      // حساب النتيجة
+      const percent = Math.round((correctCount / totalQuestions) * 100);
+
+      // عرض النتائج الملخصية
+      let html = `<div class="result-box"><h3>النتيجة العامة</h3>`;
+      html += `<p class="meta">عدد الأسئلة: <strong>${totalQuestions}</strong> — إجابات صحيحة: <strong>${correctCount}</strong> — النسبة: <strong>${percent}%</strong></p>`;
+      html += `<hr style="margin:12px 0;">`;
+      html += `<h4>تفاصيل الإجابات</h4>`;
+
+      // تفاصيل سؤال بسؤال
+      details.forEach((d, idx) => {
+        html += `<div class="answer-line">`;
+        html += `<strong>قسم:</strong> ${d.section} — <strong>سؤال ${idx+1}:</strong> ${d.qText}<br>`;
+        html += `<strong>إجابتك:</strong> ${d.userAnswer} <br>`;
+        html += `<strong>الإجابة الصحيحة:</strong> ${d.correctAnswer} <br>`;
+        html += `<strong>النتيجة:</strong> ${d.isCorrect ? '<span class="correct">✅ صحيح</span>' : '<span class="wrong">❌ خطأ</span>'}`;
+        html += `</div>`;
+      });
+
+      html += `</div>`;
+
+      resultArea.innerHTML = html;
+
+      // بعد العرض، نمرر الصفحة للنتيجة
+      resultArea.scrollIntoView({ behavior: "smooth" });
     }
-    function select(choice){
-      const correct = quizData[idx].a;
-      if(choice === correct) score++;
-      idx++;
-      if(idx < quizData.length) loadQuestion(idx);
-      else finish();
-    }
-    function finish(){
-      document.getElementById('quiz').innerHTML = `<h3>انتهى الاختبار</h3><p>النتيجة: ${score} / ${quizData.length}</p>`;
-    }
-    document.getElementById('nextBtn').addEventListener('click', ()=> {
-      // مجرد تفعيل Next لو حبيت تستخدمه لاحقاً
-      if(idx < quizData.length) loadQuestion(idx);
-    });
-    loadQuestion(idx);
   </script>
 </body>
 </html>
